@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     private float actualBrake = 0f;
     private float actualAccelertion = 0f;
 
-    private float steerAngle = 20;
+    private float steerAngle = 15;
     private float currentSteerAngle = 0;
 
     void Start() {

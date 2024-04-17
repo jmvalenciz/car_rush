@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CrateController : MonoBehaviour
+public class CoinController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider c){
         if(c.gameObject.tag == "Player"){
-            ScoreController.scoreCount += 1;
+            ScoreController.coinCount += 1;
             Destroy(gameObject);
         }
     }
