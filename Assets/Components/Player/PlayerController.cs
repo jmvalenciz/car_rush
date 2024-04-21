@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
     [SerializeField] WheelCollider leftfront_wheel;
     [SerializeField] WheelCollider leftback_wheel;
     [SerializeField] WheelCollider rightfront_wheel;
@@ -14,24 +15,45 @@ public class PlayerController : MonoBehaviour {
     private float actualBrake = 0f;
     private float actualAccelertion = 0f;
 
-    private float steerAngle = 15;
+    private float steerAngle = 10;
     private float currentSteerAngle = 0;
 
-    void Start() {
-        
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
-        if(Input.GetKey(KeyCode.Space)){
+    void FixedUpdate()
+    {
+        actualBrake = 0f;
+        actualAccelertion = 0f;
+
+        if (Input.GetKey(KeyCode.Space))
+        {
             this.actualBrake = this.brake;
             this.actualAccelertion = 0f;
-        } else {
-            this.actualBrake = 0f;
-            this.actualAccelertion = this.acceleration;
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            actualAccelertion = acceleration;
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            actualAccelertion = -acceleration;//para retroceder
         }
 
+        /*
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+        {
+            float verticalInput = Input.GetAxis("Vertical");
+            Vector3 movementVector = transform.forward * verticalInput;
+            transform.position += movementVector * Time.deltaTime;
+        }*/
+
+
         this.currentSteerAngle = this.steerAngle * Input.GetAxis("Horizontal");
+
 
         this.leftback_wheel.brakeTorque = this.actualBrake;
         this.rightback_wheel.brakeTorque = this.actualBrake;
