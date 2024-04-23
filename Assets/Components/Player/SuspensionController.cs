@@ -1,5 +1,5 @@
 using UnityEngine;
-public class Ensayos : MonoBehaviour
+public class SuspensionController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Rigidbody CarRB;
