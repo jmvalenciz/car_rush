@@ -1,3 +1,4 @@
+// SOURCE: https://roystan.net/articles/toon-shader/
 Shader "Roystan/Toon"
 {
 	Properties

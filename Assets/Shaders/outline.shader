@@ -1,3 +1,4 @@
+// SOURCE: https://github.com/Shrimpey/Outlined-Diffuse-Shader-Fixed
 Shader "Outlined/Uniform"
 {
 	Properties
